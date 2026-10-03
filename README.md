@@ -1,5 +1,4 @@
 # 🏥 JEEVANSETU AI — Smart Rural Health & Emergency Triage Engine
-### Smart India Hackathon (SIH 2026) • Problem Statement SIH26133
 
 > **JEEVANSETU AI** is an end-to-end, offline-first AI triage, capacity-aware GIS hospital routing, and multilingual clinical decision support system designed specifically for rural hamlets, primary health centers (PHCs), ASHA workers, and district emergency response teams in India.
 
