@@ -48,9 +48,6 @@ export default function Navbar({
                 <h1 className="text-xl font-black font-outfit tracking-wide text-white">
                   JEEVANSETU<span className="text-teal-400">.AI</span>
                 </h1>
-                <span className="hidden sm:inline-block bg-teal-500/10 text-teal-300 border border-teal-500/30 text-[10px] font-extrabold px-2 py-0.5 rounded-full">
-                  SIH26133
-                </span>
               </div>
               <p className="text-[10px] text-slate-400 hidden md:block">
                 Rural Health Screening, Referral & Emergency Support
