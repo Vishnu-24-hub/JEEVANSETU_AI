@@ -15,22 +15,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- PWA Web App Manifest -->
-    <link rel="manifest" href="/manifest.json" />
+    <link rel="manifest" href="./manifest.json" />
 
     <!-- Leaflet CSS for GIS Maps -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   </head>
   <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-teal-500 selection:text-white overflow-x-hidden min-h-screen">
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <script type="module" src="./src/main.jsx"></script>
     <script>
-      // Register Service Worker safely for offline functionality with auto-update
+      // Register Service Worker safely for GitHub Pages and local environments
       if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
+          const swPath = new URL('sw.js', window.location.href).pathname;
+          navigator.serviceWorker.register(swPath)
             .then((reg) => {
               reg.update();
-              console.log('✅ JEEVANSETU Service Worker Registered:', reg.scope);
+              console.log('✅ JEEVANSETU Service Worker Registered on scope:', reg.scope);
             })
             .catch((err) => {
               console.warn('⚠️ Service Worker Registration note:', err);
