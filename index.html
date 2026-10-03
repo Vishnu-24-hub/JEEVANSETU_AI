@@ -22,22 +22,19 @@
   </head>
   <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-teal-500 selection:text-white overflow-x-hidden min-h-screen">
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
     <script>
-      // Register Service Worker safely for GitHub Pages and local environments
-      if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
-        window.addEventListener('load', () => {
-          const swPath = new URL('sw.js', window.location.href).pathname;
-          navigator.serviceWorker.register(swPath)
-            .then((reg) => {
-              reg.update();
-              console.log('✅ JEEVANSETU Service Worker Registered on scope:', reg.scope);
-            })
-            .catch((err) => {
-              console.warn('⚠️ Service Worker Registration note:', err);
-            });
+      // Clean previous service workers and stale browser cache locks
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+          for(let r of registrations) { r.unregister(); }
+        });
+      }
+      if ('caches' in window) {
+        caches.keys().then(function(names) {
+          for (let name of names) { caches.delete(name); }
         });
       }
     </script>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
