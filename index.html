@@ -1,41 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🩺</text></svg>" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="theme-color" content="#0f172a" />
-    <meta name="description" content="JEEVANSETU AI - AI-powered Rural Health Screening, Referral & Emergency Support Platform (SIH 2026 SIH26133)" />
-    
-    <title>JEEVANSETU AI — Rural Health Screening & Smart Referral Platform</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- PWA Web App Manifest -->
-    <link rel="manifest" href="./manifest.json" />
-
-    <!-- Leaflet CSS for GIS Maps -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-    <script type="module" crossorigin src="/JEEVANSETU_AI/assets/index-jgBeG5Oi.js"></script>
-    <link rel="stylesheet" crossorigin href="/JEEVANSETU_AI/assets/index-y4cacfyH.css">
-  </head>
-  <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-teal-500 selection:text-white overflow-x-hidden min-h-screen">
-    <div id="root"></div>
+    <meta charset="utf-8">
+    <title>JEEVANSETU AI</title>
     <script>
-      // Clean previous service workers and stale browser cache locks
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.getRegistrations().then(function(registrations) {
-          for(let r of registrations) { r.unregister(); }
-        });
-      }
-      if ('caches' in window) {
-        caches.keys().then(function(names) {
-          for (let name of names) { caches.delete(name); }
-        });
-      }
+      (() => {
+        const l = window.location;
+        const pathname = l.pathname || '/';
+        const repoBase = pathname.split('/').slice(0, 2).join('/') || '';
+        const suffix = pathname.startsWith(repoBase) ? pathname.slice(repoBase.length) || '/' : '/';
+        const target = `${l.protocol}//${l.hostname}${l.port ? ':' + l.port : ''}${repoBase}/?p=${encodeURIComponent(suffix)}${l.search ? '&q=' + encodeURIComponent(l.search.slice(1)) : ''}${l.hash || ''}`;
+        l.replace(target);
+      })();
     </script>
-  </body>
+  </head>
+  <body></body>
 </html>
