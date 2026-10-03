@@ -9,7 +9,8 @@ import {
   Mic, 
   Smartphone, 
   Monitor,
-  HeartPulse
+  HeartPulse,
+  Scan
 } from 'lucide-react';
 
 export default function Navbar({ 
@@ -18,7 +19,8 @@ export default function Navbar({
   isMobileSimulated, 
   setIsMobileSimulated, 
   onOpenVoiceModal, 
-  onOpenPatentModal 
+  onOpenPatentModal,
+  onOpenScannerModal
 }) {
   const navItems = [
     { id: 'screening', label: 'AI Risk Screening', icon: Activity },
@@ -78,9 +80,19 @@ export default function Navbar({
             })}
           </nav>
 
-          {/* Controls: Voice Mic, Mobile Simulation Toggle, Patent Deck */}
+          {/* Controls: Voice Mic, QR Scanner, Mobile Simulation Toggle, Patent Deck */}
           <div className="flex items-center gap-2">
             
+            {/* Live QR Scanner Launcher */}
+            <button
+              onClick={onOpenScannerModal}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-teal-300 border border-teal-500/40 text-xs font-bold transition-all scale-100 active:scale-95"
+              title="Scan Patient QR Referral Pass (Camera / Upload)"
+            >
+              <Scan className="w-3.5 h-3.5 text-teal-400" />
+              <span className="hidden sm:inline">Scan QR Pass</span>
+            </button>
+
             {/* Voice Mic Launcher */}
             <button
               onClick={onOpenVoiceModal}
